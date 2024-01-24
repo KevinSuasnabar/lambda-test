@@ -1,0 +1,13 @@
+{
+    "TableName": "gcs_status_codes",
+    "KeySchema": [
+        { "AttributeName": "qik_status_id", "KeyType": "HASH" }
+    ],
+    "AttributeDefinitions": [
+        { "AttributeName": "qik_status_id", "AttributeType": "N" }
+    ],
+    "ProvisionedThroughput": {
+        "ReadCapacityUnits": 40,
+        "WriteCapacityUnits": 40
+    }
+}

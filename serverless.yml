@@ -1,0 +1,37 @@
+service: sab-functions
+
+useDotenv: true
+
+custom:
+  serverless-offline:
+    httpPort: ${env:HTTP_PORT}
+    lambdaPort: ${env:LAMBDA_PORT}
+    noPrependStageInUrl: true
+    allowCache: true
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+
+functions:
+  sabs-client-info:
+    handler: dist/src/functions/sabs-client-info/index.handler
+    events:
+      - http:
+          method: GET
+          path: /sabs-client-info
+  sabs-debit-credit:
+    handler: dist/src/functions/sabs-debit-credit/index.handler
+    events:
+      - http:
+          method: POST
+          path: /sabs-debit-credit
+  sabs-sftp-daily-files:
+    handler: dist/src/functions/sabs-sftp-daily-files/index.handler
+    events:
+      - http:
+          method: GET
+          path: /sabs-sftp-daily-files
+plugins:
+  - serverless-offline
+  
