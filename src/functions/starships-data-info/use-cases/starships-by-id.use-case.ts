@@ -8,7 +8,7 @@ import { StarshipApiCamelCaseBuilder } from "@functions/starships-data-info/buil
 
 export class StarshipByIdUseCase {
 
-  
+
   constructor(
     private readonly logger: Logger,
     private readonly swapiService: SwapiService,
@@ -46,9 +46,12 @@ export class StarshipByIdUseCase {
 
   private async getStarship(starShipId: number) {
     const starshipRespository = StarshipRepository.create();
-    const starshipCreated = await starshipRespository.getStarshipById(starShipId);
-    const starshipBuilded = StarshipApiCamelCaseBuilder.createStarshipApiCamelCaseBuilderFromStarshipApiResponseDto(starshipCreated, starShipId);
-    return starshipBuilded;
+    const starship = await starshipRespository.getStarshipById(starShipId);
+    if (starship) {
+      return StarshipApiCamelCaseBuilder.createStarshipApiCamelCaseBuilderFromStarshipApiResponseDto(starship, starShipId);
+
+    }
+    return null;
 
   }
 

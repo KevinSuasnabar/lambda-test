@@ -140,6 +140,7 @@ export class StarshipApiCamelCaseBuilder {
 
 
     static createStarshipApiCamelCaseBuilderFromStarshipApiResponseDto(apiResponseData: StarshipApiResponseDto, starShipId: number) {
+        
         return new StarshipApiCamelCaseBuilder()
             .setStarshipId(starShipId)
             .setName(apiResponseData?.name)

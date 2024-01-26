@@ -50,13 +50,16 @@ export class StarshipRepository extends DynamoDBFactory {
                 starship_id: Number(starShipId),
             },
         });
-
         return this.docClient
             .send(command)
             .then(({ Item: item }: Record<string, any>): StarshipEntity => {
                 if (!item) {
+                    console.log("no hay")
+
                     return null;
                 }
+                console.log("si hay")
+
                 return item;
             });
     }

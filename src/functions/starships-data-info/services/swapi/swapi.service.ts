@@ -10,7 +10,10 @@ export class SwapiService {
     this.logger.log(`Start findStarShipById, starShipId: ${starShipId}`);
     return axios
       .get(`${config.swapiService.path}/starships/${starShipId}`)
-      .then(({ data: response }) => response)
+      .then(({ data: response }) => {
+        console.log(response)
+        return response
+      })
       .catch((error) => {
         this.logger.log(`Error in findStarShipById, message: ${error?.response}`);
         return error;
