@@ -1,0 +1,23 @@
+{
+    "en-es": {
+        "starshipId": "starshipId",
+        "name": "nombre",
+        "model": "modelo",
+        "manufacturer": "fabricante",
+        "costInCredits": "costoEnCreditos",
+        "length": "longitud",
+        "maxAtmospheringSpeed": "velocidadMaximaAtmosferica",
+        "crew": "tripulacion",
+        "passengers": "pasajeros",
+        "cargoCapacity": "capacidadCarga",
+        "consumables": "consumibles",
+        "hyperdriveRating": "indiceDeHipervelocidad",
+        "MGLT": "MGLT",
+        "starshipClass": "claseDeNave",
+        "pilots": "pilotos",
+        "films": "peliculas",
+        "created": "fechaCreacion",
+        "edited": "fechaModificacion",
+        "url": "url"
+    }
+}

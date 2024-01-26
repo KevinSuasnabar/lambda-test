@@ -1,7 +1,1 @@
-export const ALGORITHM = "sha512";
-export const ENCODING_CRYPTO = "hex";
-export const QUERY_DATA_CRYPTO = "key=value";
-export const ENCODING_CRYPTO_FORMAT = "utf8";
-
-export const GENERIC_ERROR_CODE = "0031";
-export const GENERIC_ERROR_MESSAGE = "Código de respuesta inválido.";
+export const SEED_ID = 76;//debido a que el api presenta ids salteados 1,2, 5,10...,75

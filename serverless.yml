@@ -8,30 +8,60 @@ custom:
     lambdaPort: ${env:LAMBDA_PORT}
     noPrependStageInUrl: true
     allowCache: true
-
+    
 provider:
   name: aws
   runtime: nodejs18.x
 
 functions:
-  sabs-client-info:
-    handler: dist/src/functions/sabs-client-info/index.handler
+  starships-data-info:
+    handler: dist/src/functions/starships-data-info/index.handler
     events:
       - http:
           method: GET
-          path: /sabs-client-info
-  sabs-debit-credit:
-    handler: dist/src/functions/sabs-debit-credit/index.handler
+          path: /star-ships/{starShipId}
+          # documentation:
+          #   summary: starship por id
+          #   description: Obtener un starship por id
+          #   requestModels:
+          #     application/json: StarshipResponseDto
+          #   pathParams:
+          #     - name: starShipId
+          #       description: Id de un starship
+          #       schema:
+          #         type: string
+          #         pattern: "^[-a-z0-9_]+$"
+          #   methodResponses:
+          #     - statusCode: 200
+          #       responseBody:
+          #         description: Retorna un starship encontrado
+          #     - statusCode: 500
+          #       responseBody:
+          #         description: Internal server error
+
+
+  starships-data-create:
+    handler: dist/src/functions/starships-data-create/index.handler
     events:
       - http:
           method: POST
-          path: /sabs-debit-credit
-  sabs-sftp-daily-files:
-    handler: dist/src/functions/sabs-sftp-daily-files/index.handler
-    events:
-      - http:
-          method: GET
-          path: /sabs-sftp-daily-files
+          path: /star-ships/create
+          # documentation:
+          #   summary: Crear starship
+          #   description: Almacena un starship en la basededatos
+          #   requestBody:
+          #     description: StarshipCreateRequestDto
+          #   methodResponses:
+          #     - statusCode: 201
+          #       responseBody:
+          #         description: Starship creado
+          #     - statusCode: 500
+          #       responseBody:
+          #         description: Internal server error
+
+
 plugins:
+  - serverless-auto-swagger
   - serverless-offline
-  
+
+

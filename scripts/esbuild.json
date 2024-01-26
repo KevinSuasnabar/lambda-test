@@ -1,7 +1,7 @@
 {
   "functions": [
-    "src/functions/sabs-client-info/index.ts",
-    "src/functions/sabs-debit-credit/index.ts"
+    "src/functions/starships-data-info/index.ts",
+    "src/functions/starships-data-create/index.ts"
   ],
   "alias": ["@libs", "@functions"]
 }

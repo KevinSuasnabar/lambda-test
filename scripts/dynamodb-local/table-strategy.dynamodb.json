@@ -1,10 +1,10 @@
 {
-    "TableName": "gcs_status_codes",
+    "TableName": "starships",
     "KeySchema": [
-        { "AttributeName": "qik_status_id", "KeyType": "HASH" }
+        { "AttributeName": "starship_id", "KeyType": "HASH" }
     ],
     "AttributeDefinitions": [
-        { "AttributeName": "qik_status_id", "AttributeType": "N" }
+        { "AttributeName": "starship_id", "AttributeType": "N" }
     ],
     "ProvisionedThroughput": {
         "ReadCapacityUnits": 40,

@@ -1,8 +1,8 @@
 {
-  "name": "sab-functions",
-  "author": "Squad CA",
+  "name": "lambda-test-main",
+  "author": "Kevin Suasnabar Cucho",
   "version": "1.0.0",
-  "description": "Sample OpenWhisk NodeJS serverless framework service.",
+  "description": "Prueba tecnica",
   "scripts": {
     "serverless": "sls offline --config=serverless.yml",
     "build": "npm i && node scripts/esbuild.config.mjs",
@@ -54,6 +54,7 @@
     "eslint-plugin-import": "^2.29.0",
     "eslint-plugin-prettier": "^5.0.1",
     "eslint-plugin-security": "^1.7.1",
+    "file-type": "^18.7.0",
     "jest": "^29.7.0",
     "jest-mock-console": "^2.0.0",
     "jest-mock-extended": "^3.0.5",
@@ -61,13 +62,14 @@
     "prettier": "^3.1.0",
     "reflect-metadata": "^0.1.13",
     "serverless": "^3.38.0",
+    "serverless-auto-swagger": "^2.12.0",
     "serverless-esbuild": "^1.49.0",
     "serverless-offline": "^13.3.0",
+    "serverless-openapi-documentation": "^0.4.0",
     "ts-jest": "^29.1.1",
     "ts-node": "^10.9.1",
     "tsconfig-paths": "^4.2.0",
-    "typescript": "^5.3.2",
-    "file-type": "^18.7.0"
+    "typescript": "^5.3.2"
   },
   "jest": {
     "setupFiles": [

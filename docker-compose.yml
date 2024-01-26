@@ -38,33 +38,6 @@ services:
     depends_on:
       - dynamodb-local
 
-  dynamodb-seeder:
-    env_file:
-      - ./.env
-    image: banst/awscli:1.18.76
-    container_name: app-dynamodb_seeder
-    working_dir: /home/dynamodblocal
-    command: dynamodb batch-write-item --request-items file://insert-strategy.dynamodb.json --endpoint-url $DYNAMODB_ENDPOINT
-    volumes:
-      - ./scripts/dynamodb-local/:/home/dynamodblocal
-    environment:
-      - AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY
-      - AWS_SECRET_ACCESS_KEY=$AWS_SECRET_KEY
-      - AWS_DEFAULT_REGION=$SAB_AWS_REGION
-    depends_on:
-      - dynamodb-migrator
-      - dynamodb-local
-    restart: on-failure
-
-  sftp:
-    image: atmoz/sftp
-    container_name: sftp_server
-    volumes:
-      - ../download:/home/qik
-    ports:
-      - '2222:22'
-    command: qik:secret
-
 volumes:
   app_dynamodb:
     driver: local
